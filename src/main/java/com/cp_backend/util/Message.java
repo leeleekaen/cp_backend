@@ -1,7 +1,11 @@
 package com.cp_backend.util;
 
+import com.cp_backend.util.date.JsonDateValueProcessor;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
+import net.sf.json.JsonConfig;
+
+import java.util.Date;
 
 /**
  * Created by ljl on 2017/11/2.
@@ -11,6 +15,7 @@ import net.sf.json.JSONObject;
 public class Message {
     private static final String ERROR = "error";
     private static final String SUCCESS = "success";
+
     // 状态码
     private int ret;
     // 内容体
@@ -51,29 +56,9 @@ public class Message {
     public static Message successMessage(Object object){
         return new Message(200, object, SUCCESS);
     }
-
-    public static Message successMessageEx(Object object) {
-        return successMessage(object, false);
-    }
-
-    public static Message successMessage(Object object, Boolean deepOutputSwitch){
-        JSONArray jsonArray= (JSONArray) JSONArray.fromObject(object);
-        JSONArray outJsonArray = new JSONArray();
-
-        if (deepOutputSwitch) {
-            return successMessage(object);
-        } else {
-            for (int i = 0; i < jsonArray.size(); i++) {
-                System.out.println(jsonArray.get(i));
-                JSONObject jsonData = (JSONObject) jsonArray.get(i);//得到对象中的第i条记录
-                jsonData.remove("primaryKey");
-                jsonData.remove("properties");
-                jsonData.remove("tableName");
-
-                outJsonArray.add(jsonData);
-            }
-            return successMessage(outJsonArray);
-        }
+    // 返回成功对象
+    public static Message successMessage(Object object,String msg){
+        return new Message(200, object, msg);
     }
 
     public int getRet() {

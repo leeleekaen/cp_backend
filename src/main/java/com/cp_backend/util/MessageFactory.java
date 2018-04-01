@@ -1,5 +1,6 @@
 package com.cp_backend.util;
 
+import com.cp_backend.dao.ExampleDao;
 import com.cp_backend.util.date.JsonDateValueProcessor;
 import net.sf.json.JSONObject;
 import net.sf.json.JsonConfig;
@@ -16,82 +17,28 @@ public class MessageFactory {
         jsonConfig.registerJsonValueProcessor(Date.class, new JsonDateValueProcessor());
     }
 
-    public static String getMessage(Object obj){
-        Message message;
-        try{
-            message = Message.successMessageEx(obj);
-        }catch (Exception e){
-            message = Message.errorMessage();
-            return JSONObject.fromObject(message).toString();
+    public static String getSuccessMessage(Object obj){
+        Message message = Message.successMessage(obj);
+        try {
+            String mes = JSONObject.fromObject(message, jsonConfig).toString();
+            return mes;
+        } catch (Exception e) {
+            e.printStackTrace();
+
         }
-        return JSONObject.fromObject(message, jsonConfig).toString();
+       return "111";
     }
 
-    public static String getMessage(Object obj, Object param){
-        Message message = null;
-        if (param == null){
-            message = Message.errorMessage("参数为空！");
-        }else{
-            try {
-                message = Message.successMessageEx(obj);
-            }catch (Exception e){
-                message = Message.errorMessage();
-                return  JSONObject.fromObject(message, jsonConfig).toString();
-            }
-        }
-        return  JSONObject.fromObject(message, jsonConfig).toString();
+    public static String getSuccessMessage(Object obj, String msg) {
+        return JSONObject.fromObject(Message.successMessage(obj, msg), jsonConfig).toString();
     }
-
-    /**
-     * 返回对象的的消息
-     * @param obj 对象
-     * @return
-     */
-    public static String getMessageObj(Object obj){
-        Message message = null;
-        try{
-            message = Message.successMessage(obj);
-        }catch (Exception e){
-            message = Message.errorMessage();
-            return JSONObject.fromObject(message, jsonConfig).toString();
-        }
-        return JSONObject.fromObject(message, jsonConfig).toString();
-    }
-
-
-    /**
-     * 校验入参的返回对象的消息
-     * @param obj 对象
-     * @param param 需要校验的入参
-     * @return
-     */
-    public static String getMessageObj(Object obj, Object param){
-        Message message = null;
-        if (param == null){
-            message = Message.errorMessage("参数为空！");
-        }else{
-            try {
-                message = Message.successMessage(obj);
-            }catch (Exception e){
-                message = Message.errorMessage();
-                return  JSONObject.fromObject(message, jsonConfig).toString();
-            }
-        }
-        return  JSONObject.fromObject(message, jsonConfig).toString();
-    }
-    
     
     public static String getErrorMessage() {
     	return JSONObject.fromObject(Message.errorMessage()).toString();
 	}
 
-    /**
-     * 返回错误信息的信息对象
-     * @param msg 错误信息
-     * @return
-     */
-    public static String getErrorMessage(String msg){
-        Message message = Message.errorMessage(msg);
-        return  JSONObject.fromObject(message).toString();
+    public static String getErrorMessage(String msg) {
+        return JSONObject.fromObject(Message.errorMessage(msg)).toString();
     }
+
 }

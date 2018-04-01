@@ -15,6 +15,7 @@ public class GlobalExceptionHandle {
     @ResponseBody
 
     public String defaultErrorHandler(HttpServletRequest req, Exception e) throws Exception {
+        e.printStackTrace();
         return "error";
     }
 
