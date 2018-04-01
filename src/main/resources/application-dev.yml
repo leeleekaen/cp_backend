@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: cp
+server:
+  port: 8080
+logging:
+  config: classpath:logback-dev.xml
