@@ -4,9 +4,10 @@
     <!-- 项目的appid -->
     <property name="PRO_ID" value="cp"/>
     <property name="LOG_PATH" value="doc/log"></property>
+    <property name="log_pattern" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger - %msg%n"></property>
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <pattern>%d{yyyy-MM-dd HH:mm:ss} %-4relative [%thread] %-5level %logger{35} - %msg %n</pattern>
+            <pattern>${log_pattern}</pattern>
         </encoder>
     </appender>
     <appender name="FILE_LOG"
@@ -21,7 +22,7 @@
             <maxHistory>10</maxHistory>
         </rollingPolicy>
         <encoder>
-            <pattern>%d{yyyy-MM-dd HH:mm:ss} %-4relative [%thread] %-5level %logger{35} - %msg%n</pattern>
+            <pattern>${log_pattern}</pattern>
         </encoder>
     </appender>
 
@@ -39,7 +40,7 @@
             <maxHistory>10</maxHistory>
         </rollingPolicy>
         <encoder>
-            <pattern>%d{yyyy-MM-dd HH:mm:ss} %-4relative [%thread] %-5level %logger{35} - %msg%n</pattern>
+            <pattern>${log_pattern}</pattern>
         </encoder>
     </appender>
     <appender name="FILE_INFO"
@@ -56,7 +57,7 @@
             <maxHistory>10</maxHistory>
         </rollingPolicy>
         <encoder>
-            <pattern>%d{yyyy-MM-dd HH:mm:ss} %-4relative [%thread] %-5level %logger{35} - %msg%n</pattern>
+            <pattern>${log_pattern}</pattern>
         </encoder>
     </appender>
 
@@ -74,7 +75,7 @@
             <maxHistory>10</maxHistory>
         </rollingPolicy>
         <encoder>
-            <pattern>%d{yyyy-MM-dd HH:mm:ss} %-4relative [%thread] %-5level %logger{35} - %msg%n</pattern>
+            <pattern>${log_pattern}</pattern>
         </encoder>
     </appender>
     <appender name="FILE_ERROR"
@@ -91,7 +92,7 @@
             <maxHistory>10</maxHistory>
         </rollingPolicy>
         <encoder>
-            <pattern>%d{yyyy-MM-dd HH:mm:ss} %-4relative [%thread] %-5level %logger{35} - %msg%n</pattern>
+            <pattern>${log_pattern}</pattern>
         </encoder>
     </appender>
     <appender name="ASYNC_LOG" class="ch.qos.logback.classic.AsyncAppender">

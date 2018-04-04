@@ -2,7 +2,7 @@ package com.cp_backend.controller;
 
 import com.cp_backend.entity.Test;
 import com.cp_backend.service.TestService;
-import com.cp_backend.util.MessageFactory;
+import com.cp_backend.util.Message;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -26,8 +26,8 @@ public class ExampleController {
     }
 
     @RequestMapping(value = "Test",method = RequestMethod.POST)
-    public String save(Test test){
-        return MessageFactory.getSuccessMessage(service.insert(test));
+    public Message save(Test test){
+        return Message.successMessage(service.insert(test));
     }
 
     @RequestMapping(value = "Test/{id}",method = RequestMethod.DELETE)
@@ -36,9 +36,9 @@ public class ExampleController {
     }
 
     @RequestMapping(value = "Test/{id}",method = RequestMethod.GET)
-    public String find(@PathVariable("id") int id) {
+    public Message find(@PathVariable("id") int id) {
         Test test = service.find(id);
-        return test.toString();
+        return Message.successMessage(test);
     }
 
     @RequestMapping(value = "Test", method = RequestMethod.PUT)

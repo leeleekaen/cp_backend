@@ -1,7 +1,6 @@
 package com.cp_backend;
 
 import com.cp_backend.util.Message;
-import com.cp_backend.util.MessageFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -19,10 +18,10 @@ public class GlobalExceptionHandle {
 
     @ExceptionHandler(value = Exception.class)
     @ResponseBody
-    public String defaultErrorHandler(HttpServletRequest req, Exception e) throws Exception {
+    public Message defaultErrorHandler(HttpServletRequest req, Exception e) throws Exception {
         logger.error("系统异常：{}",e,e.getMessage());
         e.printStackTrace();
-        return MessageFactory.getErrorMessage(e.getMessage());
+        return Message.errorMessage(e.getMessage());
     }
 
 }

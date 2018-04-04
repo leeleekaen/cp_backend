@@ -1,6 +1,13 @@
 spring:
   application:
     name: cp
+  jpa:
+    database: mysql
+    show-sql: true
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+
 server:
   port: 8080
 logging:
