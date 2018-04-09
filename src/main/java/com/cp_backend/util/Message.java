@@ -5,6 +5,7 @@ import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import net.sf.json.JsonConfig;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -12,7 +13,7 @@ import java.util.Date;
  * 数据格式封装类
  * 主要用于规范后台返回数据以及浏览器请求的数据格式
  */
-public class Message {
+public class Message implements Serializable{
     private static final String ERROR = "error";
     private static final String SUCCESS = "success";
 
