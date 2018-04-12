@@ -1,28 +1,27 @@
 package com.cp_backend.entity;
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-
 import javax.persistence.*;
-import java.io.Serializable;
+import java.util.Date;
 
 /**
  * Created by ljl on 2018/4/1.
  */
 @Entity
 @Table(name = "test")
-@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
+//@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" }) // 忽略多余字段
 public class Test{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private int id;
+    private Integer id;
 
     @Column(name = "name")
     private String name;
 
     @Column(name = "age")
-    private int age;
+    private Integer age;
+
+    @Column(name = "create_time")
+    private Date createTime;
 
     public Integer getId() {
         return id;
@@ -46,6 +45,14 @@ public class Test{
 
     public void setAge(Integer age) {
         this.age = age;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 
     @Override
