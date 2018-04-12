@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import javax.transaction.Transactional;
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -44,5 +45,9 @@ public class TestService {
     public Test find(int id) {
         logger.info("查找id为" + id + "的实体！");
         return dao.getOne(id);
+    }
+
+    public List<Test> findAll(){
+        return dao.findAll();
     }
 }

@@ -1,23 +1,28 @@
 package com.cp_backend.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * Created by ljl on 2018/4/1.
  */
 @Entity
 @Table(name = "test")
-public class Test {
+@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
+public class Test{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Integer id;
+    private int id;
 
     @Column(name = "name")
     private String name;
 
     @Column(name = "age")
-    private Integer age;
+    private int age;
 
     public Integer getId() {
         return id;

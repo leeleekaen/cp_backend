@@ -6,15 +6,11 @@ import com.alibaba.fastjson.JSONObject;
 import com.cp_backend.entity.User;
 import com.cp_backend.service.UserService;
 import com.cp_backend.util.Message;
-import com.cp_backend.util.MessageFactory;
-
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.resource.HttpResource;
 
 import javax.annotation.Resource;
 
@@ -33,11 +29,10 @@ public class UserController {
 
     @Resource
     UserService service;
-   
 
     @RequestMapping(value = "user",method = RequestMethod.POST)
-    public String save(User user){
-        return MessageFactory.getSuccessMessage(service.insert(user));
+    public Message save(User user){
+        return Message.successMessage(service.insert(user));
     }
 
     @RequestMapping(value = "user/{id}",method = RequestMethod.DELETE)
@@ -46,11 +41,9 @@ public class UserController {
     }
 
     @RequestMapping(value = "user/{id}",produces = MediaType.APPLICATION_JSON_UTF8_VALUE,method = RequestMethod.GET)
-    public String find(@PathVariable("id") int id) {
-    	
+    public Message find(@PathVariable("id") int id) {
         User user = service.find(id);
-      
-        return JSONObject.toJSONString(user);
+        return Message.successMessage(user);
     }
 
     @RequestMapping(value = "user", method = RequestMethod.PUT)
@@ -58,8 +51,8 @@ public class UserController {
          service.update(user);
     }
     @RequestMapping(value = "user/findAll", method = RequestMethod.GET)
-    public String findAll(){
-    	return JSONArray.toJSONString(service.findAll());
+    public Message findAll(){
+    	return Message.successMessage(service.findAll());
     }
     
 }

@@ -3,10 +3,15 @@ spring:
     name: cp
   jpa:
     database: mysql
-    show-sql: true
+    show-sql: false
     generate-ddl: true
     hibernate:
       ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+        enable_lazy_load_no_trans: false
+    open-in-view: true
 
 server:
   port: 8081

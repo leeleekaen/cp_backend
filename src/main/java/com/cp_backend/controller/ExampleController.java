@@ -41,6 +41,11 @@ public class ExampleController {
         return Message.successMessage(test);
     }
 
+    @RequestMapping(value = "Tests",method = RequestMethod.GET)
+    public Message findAll() {
+        return Message.successMessage(service.findAll());
+    }
+
     @RequestMapping(value = "Test", method = RequestMethod.PUT)
     public void update(Test test){
          service.update(test);

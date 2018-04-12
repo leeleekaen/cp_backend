@@ -1,7 +1,7 @@
 package com.cp_backend.util;
 
-import net.sf.json.JSONObject;
-import org.apache.commons.lang.BooleanUtils;
+
+import org.apache.commons.lang3.BooleanUtils;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.PrintWriter;
@@ -12,12 +12,14 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import static org.apache.commons.lang3.StringUtils.isNotBlank;
+
 /**
  * Created by ljl on 2017/11/7.
  *
  * @desc 关于字符串的工具类
  */
-public class StringUtils extends org.apache.commons.lang3.StringUtils {
+public class StringUtils {
     // 私有构造方法，对外提供静态方法
     private StringUtils(){};
 
@@ -511,22 +513,5 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
         	remoteAddr = request.getHeader("WL-Proxy-Client-IP");
         }
         return remoteAddr != null ? remoteAddr : request.getRemoteAddr();
-	}
-
-    /**
-     * 将json字符串转化为实体对象
-     * @param jsonString
-     * @param clazz
-     * @param <T>
-     * @return
-     */
-    public static <T> T jsonStringToObject(String jsonString, Class<T> clazz){
-        JSONObject jsonObject = JSONObject.fromObject(jsonString);
-        T obj = (T) JSONObject.toBean(jsonObject, clazz);
-        return obj;
-    }
-	
-	public static void main(String[] args) {
-		System.out.println(StringUtils.lineToHump("tt_were_ds_1"));
 	}
 }
