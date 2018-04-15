@@ -7,8 +7,7 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "test")
-//@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" }) // 忽略多余字段
-public class Test{
+public class Test implements EntityInterface{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")

@@ -40,7 +40,7 @@ public class UserController {
         service.delete(id);
     }
 
-    @RequestMapping(value = "user/{id}",produces = MediaType.APPLICATION_JSON_UTF8_VALUE,method = RequestMethod.GET)
+    @RequestMapping(value = "user/{id}",method = RequestMethod.GET)
     public Message find(@PathVariable("id") int id) {
         User user = service.find(id);
         return Message.successMessage(user);
