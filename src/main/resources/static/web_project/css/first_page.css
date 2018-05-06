@@ -1,0 +1,720 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+body,html{
+	height: 100%;
+	font-family: "Cormorant Garamond", Georgia, serif;
+}
+
+body{
+	
+	font-family: "Helvetica Neue";
+	
+}
+
+/*第一页*/
+.div_1_liu{
+	height: 100%;
+}
+
+
+
+
+.jumbotron{
+	background: rgba(255,255,255,0);
+	color: white;
+	text-align: center;
+	margin-top: 10%;
+}
+.jumbotron p{
+	font-size: 40px;
+}
+
+
+/*第二页*/
+.div_2_liu{
+	height: 140%;
+}
+
+.goods_box_liu{
+	width: 100%;
+	height: 100%;
+}
+
+.goods_title_liu{
+	width: 100%;
+	height: 20%;
+	left: 0;
+	top: 0;
+	margin: auto;
+	margin-top: 50px;
+}
+
+.goods_title_liu h1{
+	text-align: center;
+}
+
+.goods_title_liu h4{
+	text-align: center;
+}
+.goods_title_liu img{
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+
+.goods_liu{
+	width: 90%;
+	height: 70%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.goods_1_liu{
+	height: 100%;
+}
+.goods_2_liu{
+	height: 100%;
+}
+.goods_3_liu{
+	height: 100%;
+}
+
+.goods_1_img_liu,.goods_2_img_liu,.goods_3_img_liu{
+	position: absolute;
+	left: 10px;
+	right: 10px;
+	margin: 0 auto;
+	height: 70%;
+	overflow:hidden;
+}
+
+.goods_1_img_liu img,.goods_2_img_liu img,.goods_3_img_liu img{
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+	width: 100%;
+	height: 100%;
+	transition: all 0.5s ease;
+}
+
+
+.goods_1_img_box_liu,.goods_2_img_box_liu,.goods_3_img_box_liu{
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+	width: 0%;
+	height: 0%;
+	border: 1px solid white;
+	opacity: 0;
+}
+
+
+.goods_1_img_text_liu,.goods_2_img_text_liu,.goods_3_img_text_liu{
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+	height: 20%;
+	color: white;
+	text-align: center;
+}
+
+
+
+.goods_1_name_liu,.goods_2_name_liu,.goods_3_name_liu{
+	position: absolute;
+	width: 100%;
+	left: 0;
+	text-align: center;
+	top: 71%;
+	font-size: 25px;
+	color: black;
+	font-weight: bold;
+}
+
+.goods_1_p_liu,.goods_2_p_liu,.goods_3_p_liu{
+	position: absolute;
+	width: 100%;
+	left: 0;
+	top: 78%;
+	text-align: center;
+	font-size: 18px;
+	color: gray;
+}
+
+.goods_1_i_liu,.goods_2_i_liu,.goods_3_i_liu{
+	position: absolute;
+	width: 100%;
+	left: 0;
+	top: 85%;
+	letter-spacing: 10px;
+	text-align: center;
+	font-size: 18px;
+	color: black;
+	font-weight: bold;
+}
+
+.goods_1_img_liu:hover>img{
+	transform: scale(1.2);
+}
+.goods_2_img_liu:hover>img{
+	transform: scale(1.2);
+}
+.goods_3_img_liu:hover>img{
+	transform: scale(1.2);
+}
+
+.goods_1_i_liu .fa-weixin:hover,.goods_2_i_liu .fa-weixin:hover,.goods_3_i_liu .fa-weixin:hover{
+	color: rgb(2,164,3);
+	cursor: pointer;
+}
+.goods_1_i_liu .fa-qq:hover,.goods_2_i_liu .fa-qq:hover,.goods_3_i_liu .fa-qq:hover{
+	color: rgb(7,144,208);
+	cursor: pointer;
+}
+
+.goods_1_i_liu .fa-weibo:hover,.goods_2_i_liu .fa-weibo:hover,.goods_3_i_liu .fa-weibo:hover{
+	color: rgb(235,101,104);
+	cursor: pointer;
+}
+
+
+
+
+
+/*第三页*/
+.div_3_liu{
+	height: 120%;
+}
+.service_box_liu{
+	width: 100%;
+	height: 100%;
+}
+.service_liu{
+	height: 70%;
+	width: 100%;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 5%;
+}
+
+
+.service_1_liu a span,.service_2_liu a span,.service_3_liu a span,.service_4_liu a span{
+	display: block;
+	font-size: 100px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 10%;
+}
+.fa-circle{
+	border: 2px solid white;
+	width: 100px;
+	color: rgb(255,255,255);
+	border-radius: 50%;
+	transition: all 0.3s;
+}
+.fa-smile-o,.fa-trophy,.fa-glass,.fa-file-text-o{
+	color: black;
+	transition: all 0.3s;
+}
+
+.service_1_liu,.service_2_liu,.service_3_liu,.service_4_liu{
+	text-align: center;
+	color: black;
+}
+
+.service_div_box_liu{
+	padding: 5px;
+	transition: all 0.3s;
+}
+.service_div_box_liu:hover{
+	
+	background: rgb(247,57,90);
+	box-shadow: 0px 0px 0px 0px darkgray,   /*上边阴影  */
+                -5px 0px 50px 0px darkgray,   /*左边阴影  */
+                5px 0px 50px 0px darkgray,    /*右边阴影  */
+                0px 5px 50px 0px darkgray;    /*下边阴影  */
+	margin-top: -10px;
+	color: white;
+	
+}
+.service_div_box_liu:hover .fa-smile-o{
+	color: white;
+}
+.service_div_box_liu:hover .fa-trophy{
+	color: white;
+}
+.service_div_box_liu:hover .fa-glass{
+	color: white;
+}
+.service_div_box_liu:hover .fa-file-text-o{
+	color: white;
+}
+.service_div_box_liu:hover .fa-circle{
+	color: rgb(247,57,90);
+}
+
+
+
+
+/*第四个页面*/
+.div_4_liu{
+	height: 105%;
+}
+
+
+.message_box_liu{
+	width: 100%;
+	height: 100%;
+	padding: 0;
+}
+
+.message_title_liu{
+	width: 100%;
+	height: 20%;
+	left: 0;
+	top: 0;
+	margin: auto;
+	margin-top: -50px;
+}
+
+.message_title_liu h1{
+	text-align: center;
+}
+
+.message_title_liu h4{
+	text-align: center;
+}
+.message_title_liu img{
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+
+.message_liu img{
+	width: 100%;
+	transition: all 0.5s;
+}
+
+.message_liu{
+	height: 80%;
+	width: 100%;
+	display: block;
+	margin-left: 0;
+	margin-right: 0;
+}
+
+
+.message_1_liu,.message_2_liu,.message_3_liu,.message_4_liu,.message_5_liu,.message_6_liu,.message_7_liu,.message_8_liu{
+	
+	padding: 0;
+}
+.message_1_box_liu,.message_2_box_liu,.message_3_box_liu,.message_4_box_liu,.message_5_box_liu,.message_6_box_liu,.message_7_box_liu,.message_8_box_liu{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	transition: all 0.5s;
+	background: rgba(255,255,255,0);
+}
+.message_1_box_liu h3,.message_2_box_liu h3,.message_3_box_liu h3,.message_4_box_liu h3,.message_5_box_liu h3,.message_6_box_liu h3,.message_7_box_liu h3,.message_8_box_liu h3{
+	position: absolute;
+	bottom: -50px;
+	left: 20px;
+	color: white;
+	transition: all 0.5s;
+}
+.message_1_box_liu h5,.message_2_box_liu h5,.message_3_box_liu h5,.message_4_box_liu h5,.message_5_box_liu h5,.message_6_box_liu h5,.message_7_box_liu h5,.message_8_box_liu h5{
+	position: absolute;
+	bottom: -80px;
+	left: 20px;
+	color: white;
+	transition: all 0.5s;
+}
+.message_1_box_liu i,.message_2_box_liu i,.message_3_box_liu i,.message_4_box_liu i,.message_5_box_liu i,.message_6_box_liu i,.message_7_box_liu i,.message_8_box_liu i{
+	position: absolute;
+	bottom: -50px;
+	right: 20px;
+	font-size: 20px;
+	color: white;
+	transition: all 0.5s;
+}
+
+.message_1_liu,.message_2_liu,.message_3_liu,.message_4_liu,.message_5_liu,.message_6_liu,.message_7_liu,.message_8_liu:hover>img{
+	filter: blur(0px);
+}
+.message_1_liu:hover>.message_1_box_liu{
+	cursor: pointer;
+	background: rgba(20,214,226,0.3);
+}
+.message_1_liu:hover>.message_1_box_liu h3{
+	bottom: 50px;
+}
+.message_1_liu:hover>.message_1_box_liu h5{
+	bottom: 30px;
+}
+.message_1_liu:hover>.message_1_box_liu i{
+	bottom: 50px;
+}
+
+
+
+.message_2_liu:hover>.message_2_box_liu{
+	cursor: pointer;
+	background: rgba(20,214,226,0.3);
+}
+.message_2_liu:hover>.message_2_box_liu h3{
+	bottom: 50px;
+}
+.message_2_liu:hover>.message_2_box_liu h5{
+	bottom: 30px;
+}
+.message_2_liu:hover>.message_2_box_liu i{
+	bottom: 50px;
+}
+
+
+
+
+.message_3_liu:hover>.message_3_box_liu{
+	cursor: pointer;
+	background: rgba(20,214,226,0.3);
+}
+.message_3_liu:hover>.message_3_box_liu h3{
+	bottom: 50px;
+}
+.message_3_liu:hover>.message_3_box_liu h5{
+	bottom: 30px;
+}
+.message_3_liu:hover>.message_3_box_liu i{
+	bottom: 50px;
+}
+
+
+
+
+
+.message_4_liu:hover>.message_4_box_liu{
+	cursor: pointer;
+	background: rgba(20,214,226,0.3);
+}
+.message_4_liu:hover>.message_4_box_liu h3{
+	bottom: 50px;
+}
+.message_4_liu:hover>.message_4_box_liu h5{
+	bottom: 30px;
+}
+.message_4_liu:hover>.message_4_box_liu i{
+	bottom: 50px;
+}
+
+
+
+
+.message_5_liu:hover>.message_5_box_liu{
+	cursor: pointer;
+	background: rgba(20,214,226,0.3);
+}
+.message_5_liu:hover>.message_5_box_liu h3{
+	bottom: 50px;
+}
+.message_5_liu:hover>.message_5_box_liu h5{
+	bottom: 30px;
+}
+.message_5_liu:hover>.message_5_box_liu i{
+	bottom: 50px;
+}
+
+
+
+
+.message_6_liu:hover>.message_6_box_liu{
+	cursor: pointer;
+	background: rgba(20,214,226,0.3);
+}
+.message_6_liu:hover>.message_6_box_liu h3{
+	bottom: 50px;
+}
+.message_6_liu:hover>.message_6_box_liu h5{
+	bottom: 30px;
+}
+.message_6_liu:hover>.message_6_box_liu i{
+	bottom: 50px;
+}
+
+
+
+
+.message_7_liu:hover>.message_7_box_liu{
+	cursor: pointer;
+	background: rgba(20,214,226,0.3);
+}
+.message_7_liu:hover>.message_7_box_liu h3{
+	bottom: 50px;
+}
+.message_7_liu:hover>.message_7_box_liu h5{
+	bottom: 30px;
+}
+.message_7_liu:hover>.message_7_box_liu i{
+	bottom: 50px;
+}
+
+
+
+
+.message_8_liu:hover>.message_8_box_liu{
+	cursor: pointer;
+	background: rgba(20,214,226,0.3);
+}
+.message_8_liu:hover>.message_8_box_liu h3{
+	bottom: 50px;
+}
+.message_8_liu:hover>.message_8_box_liu h5{
+	bottom: 30px;
+}
+.message_8_liu:hover>.message_8_box_liu i{
+	bottom: 50px;
+}
+
+
+
+
+
+
+/*第六个页面*/
+.div_5_liu{
+	height: 90%;
+}
+
+.foot_box_liu{
+	height: 100%;
+	width: 100%;
+}
+.contact_us_liu{
+	height: 100%;
+}
+.contact_us_message_liu{
+	height: 100%;
+	top: 20px;
+	background: black;
+}
+.contact_us_message_1_liu{
+	height: 50%;
+}
+.contact_us_message_1_liu img{
+	position: absolute;
+	top: 30%;
+	left: 20%;
+}
+.contact_us_message_1_liu h6{
+	position: absolute;
+	top: 50%;
+	left: 20%;
+	line-height: 1.5;
+	font-size: 18px;
+	font-family: "Cormorant Garamond", Georgia, serif;
+	color: darkgray;
+}
+
+
+.contact_us_message_2_liu{
+	height: 50%;
+}
+.contact_us_message_2_liu h5{
+	position: absolute;
+	top: 30%;
+	left: 20%;
+	color: white;
+	font-size: 20px;
+}
+.contact_us_message_2_liu ul{
+	list-style: none;
+	position: absolute;
+	top: 50%;
+	left: 20%;
+}
+.contact_us_message_2_liu ul li a{
+	text-decoration: none;
+	cursor: pointer;
+	line-height: 1.5;
+	font-size: 18px;
+	font-family: "Cormorant Garamond", Georgia, serif;
+	color: darkgray;
+}
+
+
+
+.contact_us_message_3_liu{
+	height: 50%;
+}
+
+.contact_us_message_3_liu h5{
+	position: absolute;
+	top: 30%;
+	left: 20%;
+	color: white;
+	font-size: 20px;
+}
+.contact_us_message_3_liu ul{
+	list-style: none;
+	position: absolute;
+	top: 50%;
+	left: 20%;
+}
+.contact_us_message_3_liu ul li a{
+	text-decoration: none;
+	cursor: pointer;
+	line-height: 1.5;
+	font-size: 18px;
+	font-family: "Cormorant Garamond", Georgia, serif;
+	color: darkgray;
+}
+
+
+
+.contact_us_message_4_liu{
+	height: 50%;
+}
+
+
+.contact_us_message_4_liu h5{
+	position: absolute;
+	top: 30%;
+	left: 20%;
+	color: white;
+	font-size: 20px;
+}
+.contact_us_message_4_liu ul{
+	list-style: none;
+	position: absolute;
+	top: 50%;
+	left: 20%;
+}
+.contact_us_message_4_liu ul li{
+	text-decoration: none;
+	cursor: pointer;
+	line-height: 1.5;
+	font-size: 18px;
+	font-family: "Cormorant Garamond", Georgia, serif;
+	color: darkgray;
+}
+
+.contact_us_message_5_liu{
+	font-size: 40px;
+	text-align: center;
+	letter-spacing: 10px;
+	margin-top: 50px;
+}
+.contact_us_message_5_liu .fa-twitter:hover{
+	color: brown;
+}
+.contact_us_message_5_liu .fa-weixin:hover{
+	color: rgb(2,164,3);
+}
+
+.contact_us_message_5_liu .fa-qq:hover{
+	color: rgb(7,144,208);
+}
+.contact_us_message_5_liu .fa-weibo:hover{
+	color: rgb(235,101,104);
+}
+
+
+.navBox{
+	position: fixed;
+	right: 0;
+	top: 0;
+	left: 0;
+	background: rgba(242,242,242,0.5);
+	z-index: 100;
+}
+.navBox ul li{
+	float: right;
+}
+
+.nav-tabs{
+	border-bottom: 1px solid rgba(242,242,242,0.5) !important;
+}
+.nav-tabs li:hover{
+	cursor: pointer;
+}
+
+
+.passwordBox{
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	width: 200px;
+	height: 150px;
+	margin-top: -75px;
+	margin-left: -100px;
+	z-index: 100;
+	border: 1px solid rgba(255,50,50,0.8);
+	background: rgba(255,50,50,0.8);
+	box-shadow: 0px 0px 50px gray;
+	border-radius: 20px;
+	display: none;
+}
+
+.closeBox{
+	border: 1px solid white;
+	color: white;
+	text-align: center;
+	line-height: 10px;
+	width: 15px;
+	height: 15px;
+	border-radius: 15px;
+	position: absolute;
+	right: 10px;
+	top: 5px;
+}
+.closeBox:hover{
+	cursor: pointer;
+}
+
+.inputBox{
+	position: relative;
+	top: 50px;
+}
+.inputBox input{
+	background: rgba(255,255,255,0.8);
+}
+.keyBox{
+	position: absolute;
+	top: 8px;
+	left: 0;
+}
+.buttonBox{
+	position: relative;
+	bottom: -80px;
+}
+.loginBtn{
+	position: absolute;
+	width: 45px;
+	height: 25px;
+	text-align: center;
+	line-height: 25px;
+	background: rgba(222,222,222,0.8);
+	top: 50%;
+	left: 50%;
+    margin-top: -12.5px;
+    margin-left: -22.5px; 
+    border-radius: 5px;
+}
+.loginBtn:hover{
+	cursor: pointer;
+}
+
+

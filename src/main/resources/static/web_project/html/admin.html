@@ -1,0 +1,1490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>彩票管理系统</title>
+	<style type="text/css">
+	    *{
+	    	margin: 0;
+	    	padding: 0;
+	    }
+	    html,body{
+	    	height: 100%;
+	    	width: 100%;
+	    	overflow-y: hidden;
+	    }
+	    .highcharts-credits{
+	    	display: none !important;
+	    }
+		.box{
+			height: 100%;
+			position: relative;
+		}
+		.left_box{
+			height: 100%;
+			width: 15%;
+			position: absolute;
+			left: 0;
+		}
+		.right_box{
+			height: 100%;
+			width: 85%;
+			position: absolute;
+			right: 0;
+		}
+		.left_box_top{
+			background: #293F46;
+			height: 10%;
+			color: white;
+			text-align: center;
+			font-size: 32px;
+			line-height: 70px;
+		}
+		.left_box_bottom{
+			background: #393D49;
+			height: 90%;
+		}
+		.right_box_top{
+			background: #393D49;
+			height: 10%;
+		}
+		.right_box_bottom{
+			background: gray;
+			height: 90%;
+		}
+		a,a:hover{
+			text-decoration: none !important;
+		}
+		.home_page,.ssq_page,.dlt_page,.ssc_page,.cmbb_page{
+			height: 100%;
+			width: 100%;
+			position: relative;
+		}
+		.ssq_page,.dlt_page,.ssc_page,.cmbb_page{
+			display: none;
+		}
+		.cmbb_page{
+			background: white;
+		}
+		.home_page div,.ssq_page div,.dlt_page div{
+			position: absolute;
+			width: 50%;
+			height: 50%;
+			border: 1px solid rgb(230,230,230);
+		}
+		.ssc_page div{
+			position: absolute;
+		}
+		#container11{
+			width: 100%;
+			height: 20%;
+			border-bottom: 1px solid gray;
+			background: white;
+		}
+		#container12{
+			width: 100%;
+			height: 80%;
+			top: 20%;
+		}
+		#container5 div,#container8 div,#container11 div{
+			width: 100%;
+			height: 100%;
+		}
+		#container5 div select,#container8 div select,#container11 div select{
+			width: 50px;
+			height: 50px;
+			border-radius: 50px;
+			background: red;
+			color: white;
+			margin-top: 10px;
+		}
+		#container1{
+			left: 0
+		}
+		#container2{
+			right: 0;
+		}
+		#container3{
+			left: 0;
+			top: 50%;
+		}
+		#container4{
+			right: 0;
+			top: 50%;
+		}
+		#container5,#container8{
+			width: 100%;
+			height: 20%;
+			left: 0;
+			background: rgb(255,255,255);
+		}
+		#container6,#container9{
+			height: 80%;
+			left: 0;
+			top: 20%;
+			background: white;
+		}
+		#container7,#container10{
+			height: 80%;
+			right: 0;
+			top: 20%;
+		}
+	</style>
+	<link rel="stylesheet" type="text/css" href="../resource/bootstrap-3.3.7-dist/css/bootstrap.min.css"/>
+	<link rel="stylesheet" type="text/css" href="../resource/layui/css/layui.css">
+
+</head>
+<body>
+    <div class="box">
+    	<div class="left_box">
+    		<div class="left_box_top">
+    			<span class="glyphicon glyphicon-home" aria-hidden="true">admin</span>
+    		</div>
+
+    		<div class="left_box_bottom">
+
+	    		<ul class="layui-nav layui-nav-tree" lay-filter="test">
+				<!-- 侧边导航: <ul class="layui-nav layui-nav-tree layui-nav-side"> -->
+				  <li class="layui-nav-item layui-nav-itemed">
+				    <a href="javascript:;">发布开奖</a>
+				    <dl class="layui-nav-child">
+				      <dd id="ssqBtn"><a href="javascript:;">双色球</a></dd>
+				      <dd id="dltBtn"><a href="javascript:;">大乐透</a></dd>
+				      <dd id="sscBtn"><a href="javascript:;">时时彩</a></dd>
+				      <dd id="fcBtn"><a href="javascript:;">福彩3D</a></dd>
+				      <dd id="qxcBtn"><a href="javascript:;">七星彩</a></dd>
+				      <dd id="qlcBtn"><a href="javascript:;">七乐彩</a></dd>
+				    </dl>
+				  </li>
+				  <li class="layui-nav-item">
+				    <a href="javascript:;">信息统计</a>
+				    <dl class="layui-nav-child">
+				      <dd id="cmbbBtn"><a href="javascript:;">彩民报表</a></dd>
+				      <dd><a href="javascript:;">中奖信息</a></dd>
+				      <dd><a href="javascript:;">彩票统计</a></dd>
+				    </dl>
+				  </li>
+				  <li class="layui-nav-item"><a href="javascript:;">产品</a></li>
+				  <li class="layui-nav-item"><a href="javascript:;">大数据</a></li>
+				</ul>
+  
+    		</div>
+    	</div>
+		<div class="right_box">
+			<div class="right_box_top">
+				<ul class="layui-nav" lay-filter="">
+				  <li id="homeBtn" class="layui-nav-item layui-this"><a href="javascript:;">首页</a></li>
+				  <li class="layui-nav-item"><a href="javascript:;">最新活动</a></li>
+				  <li class="layui-nav-item"><a href="javascript:;">产品</a></li>
+				  <li class="layui-nav-item">
+				    <a href="javascript:;">解决方案</a>
+				    <dl class="layui-nav-child"> <!-- 二级菜单 -->
+				      <dd><a href="javascript:;">彩民统计</a></dd>
+				      <dd><a href="javascript:;">彩票统计</a></dd>
+				      <dd><a href="javascript:;">中奖人数</a></dd>
+				    </dl>
+				  </li>
+				  <li class="layui-nav-item"><a href="javascript:;">社区</a></li>
+				</ul>
+			</div>
+
+			<div class="right_box_bottom">
+
+			    <div id="homePage" class="home_page">
+			    	<div id="container1"></div>
+			    	<div id="container2"></div>
+			    	<div id="container3"></div>
+			    	<div id="container4"></div>
+			    </div>
+
+			    <div id="ssqPage" class="ssq_page">
+			    	<div id="container5">
+			    		<div>
+			    		
+							<input type="text" class="layui-input" placeholder="请输入发布日期" id="test1">
+							
+							<select name="city" lay-verify="required">
+						        <option value=""></option>
+						        <option value="1">01</option>
+						        <option value="2">02</option>
+						        <option value="3">03</option>
+						        <option value="4">04</option>
+						        <option value="5">05</option>
+						        <option value="6">06</option>
+						        <option value="7">07</option>
+						        <option value="8">08</option>
+						        <option value="9">09</option>
+						        <option value="10">10</option>
+						        <option value="11">11</option>
+						        <option value="12">12</option>
+						        <option value="13">13</option>
+						        <option value="14">14</option>
+						        <option value="15">15</option>
+						        <option value="16">16</option>
+						        <option value="17">17</option>
+						        <option value="18">18</option>
+						        <option value="19">19</option>
+						        <option value="20">20</option>
+						        <option value="21">21</option>
+						        <option value="22">22</option>
+						        <option value="23">23</option>
+						        <option value="24">24</option>
+						        <option value="25">25</option>
+						        <option value="26">26</option>
+						        <option value="27">27</option>
+						        <option value="28">28</option>
+						        <option value="29">29</option>
+						        <option value="30">30</option>
+						        <option value="31">31</option>
+						        <option value="32">32</option>
+						        <option value="33">33</option>
+						    </select>
+
+						    <select name="city" lay-verify="required">
+						        <option value=""></option>
+						        <option value="1">01</option>
+						        <option value="2">02</option>
+						        <option value="3">03</option>
+						        <option value="4">04</option>
+						        <option value="5">05</option>
+						        <option value="6">06</option>
+						        <option value="7">07</option>
+						        <option value="8">08</option>
+						        <option value="9">09</option>
+						        <option value="10">10</option>
+						        <option value="11">11</option>
+						        <option value="12">12</option>
+						        <option value="13">13</option>
+						        <option value="14">14</option>
+						        <option value="15">15</option>
+						        <option value="16">16</option>
+						        <option value="17">17</option>
+						        <option value="18">18</option>
+						        <option value="19">19</option>
+						        <option value="20">20</option>
+						        <option value="21">21</option>
+						        <option value="22">22</option>
+						        <option value="23">23</option>
+						        <option value="24">24</option>
+						        <option value="25">25</option>
+						        <option value="26">26</option>
+						        <option value="27">27</option>
+						        <option value="28">28</option>
+						        <option value="29">29</option>
+						        <option value="30">30</option>
+						        <option value="31">31</option>
+						        <option value="32">32</option>
+						        <option value="33">33</option>
+						    </select>
+
+						    <select name="city" lay-verify="required">
+						        <option value=""></option>
+						        <option value="1">01</option>
+						        <option value="2">02</option>
+						        <option value="3">03</option>
+						        <option value="4">04</option>
+						        <option value="5">05</option>
+						        <option value="6">06</option>
+						        <option value="7">07</option>
+						        <option value="8">08</option>
+						        <option value="9">09</option>
+						        <option value="10">10</option>
+						        <option value="11">11</option>
+						        <option value="12">12</option>
+						        <option value="13">13</option>
+						        <option value="14">14</option>
+						        <option value="15">15</option>
+						        <option value="16">16</option>
+						        <option value="17">17</option>
+						        <option value="18">18</option>
+						        <option value="19">19</option>
+						        <option value="20">20</option>
+						        <option value="21">21</option>
+						        <option value="22">22</option>
+						        <option value="23">23</option>
+						        <option value="24">24</option>
+						        <option value="25">25</option>
+						        <option value="26">26</option>
+						        <option value="27">27</option>
+						        <option value="28">28</option>
+						        <option value="29">29</option>
+						        <option value="30">30</option>
+						        <option value="31">31</option>
+						        <option value="32">32</option>
+						        <option value="33">33</option>
+						    </select>
+
+						    <select name="city" lay-verify="required">
+						        <option value=""></option>
+						        <option value="1">01</option>
+						        <option value="2">02</option>
+						        <option value="3">03</option>
+						        <option value="4">04</option>
+						        <option value="5">05</option>
+						        <option value="6">06</option>
+						        <option value="7">07</option>
+						        <option value="8">08</option>
+						        <option value="9">09</option>
+						        <option value="10">10</option>
+						        <option value="11">11</option>
+						        <option value="12">12</option>
+						        <option value="13">13</option>
+						        <option value="14">14</option>
+						        <option value="15">15</option>
+						        <option value="16">16</option>
+						        <option value="17">17</option>
+						        <option value="18">18</option>
+						        <option value="19">19</option>
+						        <option value="20">20</option>
+						        <option value="21">21</option>
+						        <option value="22">22</option>
+						        <option value="23">23</option>
+						        <option value="24">24</option>
+						        <option value="25">25</option>
+						        <option value="26">26</option>
+						        <option value="27">27</option>
+						        <option value="28">28</option>
+						        <option value="29">29</option>
+						        <option value="30">30</option>
+						        <option value="31">31</option>
+						        <option value="32">32</option>
+						        <option value="33">33</option>
+						    </select>
+
+						    <select name="city" lay-verify="required">
+						        <option value=""></option>
+						        <option value="1">01</option>
+						        <option value="2">02</option>
+						        <option value="3">03</option>
+						        <option value="4">04</option>
+						        <option value="5">05</option>
+						        <option value="6">06</option>
+						        <option value="7">07</option>
+						        <option value="8">08</option>
+						        <option value="9">09</option>
+						        <option value="10">10</option>
+						        <option value="11">11</option>
+						        <option value="12">12</option>
+						        <option value="13">13</option>
+						        <option value="14">14</option>
+						        <option value="15">15</option>
+						        <option value="16">16</option>
+						        <option value="17">17</option>
+						        <option value="18">18</option>
+						        <option value="19">19</option>
+						        <option value="20">20</option>
+						        <option value="21">21</option>
+						        <option value="22">22</option>
+						        <option value="23">23</option>
+						        <option value="24">24</option>
+						        <option value="25">25</option>
+						        <option value="26">26</option>
+						        <option value="27">27</option>
+						        <option value="28">28</option>
+						        <option value="29">29</option>
+						        <option value="30">30</option>
+						        <option value="31">31</option>
+						        <option value="32">32</option>
+						        <option value="33">33</option>
+						    </select>
+
+						    <select name="city" lay-verify="required">
+						        <option value=""></option>
+						        <option value="1">01</option>
+						        <option value="2">02</option>
+						        <option value="3">03</option>
+						        <option value="4">04</option>
+						        <option value="5">05</option>
+						        <option value="6">06</option>
+						        <option value="7">07</option>
+						        <option value="8">08</option>
+						        <option value="9">09</option>
+						        <option value="10">10</option>
+						        <option value="11">11</option>
+						        <option value="12">12</option>
+						        <option value="13">13</option>
+						        <option value="14">14</option>
+						        <option value="15">15</option>
+						        <option value="16">16</option>
+						        <option value="17">17</option>
+						        <option value="18">18</option>
+						        <option value="19">19</option>
+						        <option value="20">20</option>
+						        <option value="21">21</option>
+						        <option value="22">22</option>
+						        <option value="23">23</option>
+						        <option value="24">24</option>
+						        <option value="25">25</option>
+						        <option value="26">26</option>
+						        <option value="27">27</option>
+						        <option value="28">28</option>
+						        <option value="29">29</option>
+						        <option value="30">30</option>
+						        <option value="31">31</option>
+						        <option value="32">32</option>
+						        <option value="33">33</option>
+						    </select>
+
+						    <select style="background: blue;" name="city" lay-verify="required">
+						        <option value=""></option>
+						        <option value="1">01</option>
+						        <option value="2">02</option>
+						        <option value="3">03</option>
+						        <option value="4">04</option>
+						        <option value="5">05</option>
+						        <option value="6">06</option>
+						        <option value="7">07</option>
+						        <option value="8">08</option>
+						        <option value="9">09</option>
+						        <option value="10">10</option>
+						        <option value="11">11</option>
+						        <option value="12">12</option>
+						        <option value="13">13</option>
+						        <option value="14">14</option>
+						        <option value="15">15</option>
+						        <option value="16">16</option>
+						    </select>
+
+						    <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+      						<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+							
+
+			    		</div>
+			    	</div>
+			    	<div id="container6"></div>
+			    	<div id="container7"></div>
+			    </div>
+
+
+
+			    <!-- 大乐透 -->
+
+			    <div id="dltPage" class="dlt_page">
+			    	<div id="container8">
+			    		<div>
+			    		
+							<input type="text" class="layui-input" placeholder="请输入发布日期" id="test2">
+							
+							<select name="city" lay-verify="required">
+						        <option value=""></option>
+						        <option value="1">01</option>
+						        <option value="2">02</option>
+						        <option value="3">03</option>
+						        <option value="4">04</option>
+						        <option value="5">05</option>
+						        <option value="6">06</option>
+						        <option value="7">07</option>
+						        <option value="8">08</option>
+						        <option value="9">09</option>
+						        <option value="10">10</option>
+						        <option value="11">11</option>
+						        <option value="12">12</option>
+						        <option value="13">13</option>
+						        <option value="14">14</option>
+						        <option value="15">15</option>
+						        <option value="16">16</option>
+						        <option value="17">17</option>
+						        <option value="18">18</option>
+						        <option value="19">19</option>
+						        <option value="20">20</option>
+						        <option value="21">21</option>
+						        <option value="22">22</option>
+						        <option value="23">23</option>
+						        <option value="24">24</option>
+						        <option value="25">25</option>
+						        <option value="26">26</option>
+						        <option value="27">27</option>
+						        <option value="28">28</option>
+						        <option value="29">29</option>
+						        <option value="30">30</option>
+						        <option value="31">31</option>
+						        <option value="32">32</option>
+						        <option value="33">33</option>
+						        <option value="34">34</option>
+						        <option value="35">35</option>
+						    </select>
+
+						    <select name="city" lay-verify="required">
+						        <option value=""></option>
+						        <option value="1">01</option>
+						        <option value="2">02</option>
+						        <option value="3">03</option>
+						        <option value="4">04</option>
+						        <option value="5">05</option>
+						        <option value="6">06</option>
+						        <option value="7">07</option>
+						        <option value="8">08</option>
+						        <option value="9">09</option>
+						        <option value="10">10</option>
+						        <option value="11">11</option>
+						        <option value="12">12</option>
+						        <option value="13">13</option>
+						        <option value="14">14</option>
+						        <option value="15">15</option>
+						        <option value="16">16</option>
+						        <option value="17">17</option>
+						        <option value="18">18</option>
+						        <option value="19">19</option>
+						        <option value="20">20</option>
+						        <option value="21">21</option>
+						        <option value="22">22</option>
+						        <option value="23">23</option>
+						        <option value="24">24</option>
+						        <option value="25">25</option>
+						        <option value="26">26</option>
+						        <option value="27">27</option>
+						        <option value="28">28</option>
+						        <option value="29">29</option>
+						        <option value="30">30</option>
+						        <option value="31">31</option>
+						        <option value="32">32</option>
+						        <option value="33">33</option>
+						        <option value="34">34</option>
+						        <option value="35">35</option>
+						    </select>
+
+						    <select name="city" lay-verify="required">
+						        <option value=""></option>
+						        <option value="1">01</option>
+						        <option value="2">02</option>
+						        <option value="3">03</option>
+						        <option value="4">04</option>
+						        <option value="5">05</option>
+						        <option value="6">06</option>
+						        <option value="7">07</option>
+						        <option value="8">08</option>
+						        <option value="9">09</option>
+						        <option value="10">10</option>
+						        <option value="11">11</option>
+						        <option value="12">12</option>
+						        <option value="13">13</option>
+						        <option value="14">14</option>
+						        <option value="15">15</option>
+						        <option value="16">16</option>
+						        <option value="17">17</option>
+						        <option value="18">18</option>
+						        <option value="19">19</option>
+						        <option value="20">20</option>
+						        <option value="21">21</option>
+						        <option value="22">22</option>
+						        <option value="23">23</option>
+						        <option value="24">24</option>
+						        <option value="25">25</option>
+						        <option value="26">26</option>
+						        <option value="27">27</option>
+						        <option value="28">28</option>
+						        <option value="29">29</option>
+						        <option value="30">30</option>
+						        <option value="31">31</option>
+						        <option value="32">32</option>
+						        <option value="33">33</option>
+						        <option value="34">34</option>
+						        <option value="35">35</option>
+						    </select>
+
+						    <select name="city" lay-verify="required">
+						        <option value=""></option>
+						        <option value="1">01</option>
+						        <option value="2">02</option>
+						        <option value="3">03</option>
+						        <option value="4">04</option>
+						        <option value="5">05</option>
+						        <option value="6">06</option>
+						        <option value="7">07</option>
+						        <option value="8">08</option>
+						        <option value="9">09</option>
+						        <option value="10">10</option>
+						        <option value="11">11</option>
+						        <option value="12">12</option>
+						        <option value="13">13</option>
+						        <option value="14">14</option>
+						        <option value="15">15</option>
+						        <option value="16">16</option>
+						        <option value="17">17</option>
+						        <option value="18">18</option>
+						        <option value="19">19</option>
+						        <option value="20">20</option>
+						        <option value="21">21</option>
+						        <option value="22">22</option>
+						        <option value="23">23</option>
+						        <option value="24">24</option>
+						        <option value="25">25</option>
+						        <option value="26">26</option>
+						        <option value="27">27</option>
+						        <option value="28">28</option>
+						        <option value="29">29</option>
+						        <option value="30">30</option>
+						        <option value="31">31</option>
+						        <option value="32">32</option>
+						        <option value="33">33</option>
+						        <option value="34">34</option>
+						        <option value="35">35</option>
+						    </select>
+
+						    <select name="city" lay-verify="required">
+						        <option value=""></option>
+						        <option value="1">01</option>
+						        <option value="2">02</option>
+						        <option value="3">03</option>
+						        <option value="4">04</option>
+						        <option value="5">05</option>
+						        <option value="6">06</option>
+						        <option value="7">07</option>
+						        <option value="8">08</option>
+						        <option value="9">09</option>
+						        <option value="10">10</option>
+						        <option value="11">11</option>
+						        <option value="12">12</option>
+						        <option value="13">13</option>
+						        <option value="14">14</option>
+						        <option value="15">15</option>
+						        <option value="16">16</option>
+						        <option value="17">17</option>
+						        <option value="18">18</option>
+						        <option value="19">19</option>
+						        <option value="20">20</option>
+						        <option value="21">21</option>
+						        <option value="22">22</option>
+						        <option value="23">23</option>
+						        <option value="24">24</option>
+						        <option value="25">25</option>
+						        <option value="26">26</option>
+						        <option value="27">27</option>
+						        <option value="28">28</option>
+						        <option value="29">29</option>
+						        <option value="30">30</option>
+						        <option value="31">31</option>
+						        <option value="32">32</option>
+						        <option value="33">33</option>
+						        <option value="34">34</option>
+						        <option value="35">35</option>
+						    </select>
+
+						    <select style="background: blue;" name="city" lay-verify="required">
+						        <option value=""></option>
+						        <option value="1">01</option>
+						        <option value="2">02</option>
+						        <option value="3">03</option>
+						        <option value="4">04</option>
+						        <option value="5">05</option>
+						        <option value="6">06</option>
+						        <option value="7">07</option>
+						        <option value="8">08</option>
+						        <option value="9">09</option>
+						        <option value="10">10</option>
+						        <option value="11">11</option>
+						        <option value="12">12</option>
+						    </select>
+
+						    <select style="background: blue;" name="city" lay-verify="required">
+						        <option value=""></option>
+						        <option value="1">01</option>
+						        <option value="2">02</option>
+						        <option value="3">03</option>
+						        <option value="4">04</option>
+						        <option value="5">05</option>
+						        <option value="6">06</option>
+						        <option value="7">07</option>
+						        <option value="8">08</option>
+						        <option value="9">09</option>
+						        <option value="10">10</option>
+						        <option value="11">11</option>
+						        <option value="12">12</option>
+						    </select>
+
+						    <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+      						<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+							
+
+			    		</div>
+			    	</div>
+			    	<div id="container9"></div>
+			    	<div id="container10"></div>
+			    </div>
+
+
+			    <!-- 时时彩 -->
+			    <div id="sscPage" class="ssc_page">
+			    	<div id="container11">
+			    		
+			    		<div>
+			    		
+							<input type="text" class="layui-input" placeholder="请输入发布日期" id="test3">
+							
+							<select name="city" lay-verify="required">
+						        <option value="" selected="true" disabled="true">万</option>
+						        <option value="0">0</option>
+						        <option value="1">1</option>
+						        <option value="2">2</option>
+						        <option value="3">3</option>
+						        <option value="4">4</option>
+						        <option value="5">5</option>
+						        <option value="6">6</option>
+						        <option value="7">7</option>
+						        <option value="8">8</option>
+						        <option value="9">9</option>
+						    </select>
+
+						    <select name="city" lay-verify="required">
+						        <option value="" selected="true" disabled="true">千</option>
+						        <option value="0">0</option>
+						        <option value="1">1</option>
+						        <option value="2">2</option>
+						        <option value="3">3</option>
+						        <option value="4">4</option>
+						        <option value="5">5</option>
+						        <option value="6">6</option>
+						        <option value="7">7</option>
+						        <option value="8">8</option>
+						        <option value="9">9</option>
+						    </select>
+
+						    <select name="city" lay-verify="required">
+						        <option value="" selected="true" disabled="true">百</option>
+						        <option value="0">0</option>
+						        <option value="1">1</option>
+						        <option value="2">2</option>
+						        <option value="3">3</option>
+						        <option value="4">4</option>
+						        <option value="5">5</option>
+						        <option value="6">6</option>
+						        <option value="7">7</option>
+						        <option value="8">8</option>
+						        <option value="9">9</option>
+						    </select>
+
+						    <select name="city" lay-verify="required">
+						        <option value="" selected="true" disabled="true">十</option>
+						        <option value="0">0</option>
+						        <option value="1">1</option>
+						        <option value="2">2</option>
+						        <option value="3">3</option>
+						        <option value="4">4</option>
+						        <option value="5">5</option>
+						        <option value="6">6</option>
+						        <option value="7">7</option>
+						        <option value="8">8</option>
+						        <option value="9">9</option>
+						    </select>
+
+						    <select name="city" lay-verify="required">
+						        <option value="" selected="true" disabled="true">个</option>
+						        <option value="0">0</option>
+						        <option value="1">1</option>
+						        <option value="2">2</option>
+						        <option value="3">3</option>
+						        <option value="4">4</option>
+						        <option value="5">5</option>
+						        <option value="6">6</option>
+						        <option value="7">7</option>
+						        <option value="8">8</option>
+						        <option value="9">9</option>
+						    </select>
+
+						    <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+      						<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+							
+
+			    		</div>
+
+			    	</div>
+			    	<div id="container12"></div>
+			    </div>	
+
+
+
+			    <div id="cmbbPage" class="cmbb_page">
+			    	<table class="layui-hide" id="demo" lay-filter="test"></table>
+			    </div>
+
+
+
+
+
+
+			</div>
+		</div>
+    </div>
+</body>
+<script src="../js/jquery-1.11.0.js"></script>
+<script src="../resource/layui/layui.all.js"></script>
+<script src="../resource/highcharts/highcharts.js"></script>
+<script src="../resource/highcharts/highcharts-more.js"></script>
+<script src="../resource/echarts/echarts.js"></script>
+<script type="text/javascript">
+	$(function () {
+	    $('#container1').highcharts({
+	        chart: {
+	            plotBackgroundColor: null,
+	            plotBorderWidth: null,
+	            plotShadow: false
+	        },
+	        title: {
+	            text: '彩民男女数量占比'
+	        },
+	        tooltip: {
+	            headerFormat: '{series.name}<br>',
+	            pointFormat: '{point.name}: <b>{point.percentage:.1f}%</b>'
+	        },
+	        plotOptions: {
+	            pie: {
+	                allowPointSelect: true,
+	                cursor: 'pointer',
+	                dataLabels: {
+	                    enabled: true,
+	                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+	                    style: {
+	                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+	                    }
+	                }
+	            }
+	        },
+	        series: [{
+	            type: 'pie',
+	            name: '彩民男女数量占比',
+	            data: [
+	                ['男',   70.0],
+	                ['女',   30.0]
+	            ]
+	        }]
+	    });
+	});
+
+
+
+
+
+
+
+
+
+    $(function () {
+	    $('#container2').highcharts({
+	        chart: {
+	            type: 'column'
+	        },
+	        title: {
+	            text: '各个年龄区间人数'
+	        },
+	        subtitle: {
+	            text: '数据截止 2017-03，来源: <a href="https://en.wikipedia.org/wiki/List_of_cities_proper_by_population">Wikipedia</a>'
+	        },
+	        xAxis: {
+	            type: 'category',
+	            title: {
+	                text: '年龄区间 (岁)'
+	            },
+	            labels: {
+	                rotation: -45,
+	                style: {
+	                    fontSize: '13px',
+	                    fontFamily: 'Verdana, sans-serif'
+	                }
+	            }
+	        },
+	        yAxis: {
+	            min: 0,
+	            title: {
+	                text: '人口 (百万)'
+	            }
+	        },
+	        legend: {
+	            enabled: false
+	        },
+	        tooltip: {
+	            pointFormat: '人口总量: <b>{point.y:.1f} 百万</b>'
+	        },
+	        series: [{
+	            name: '总人口',
+	            data: [
+	                ['20以下', 24.25],
+	                ['20~30', 23.50],
+	                ['31~40', 21.51],
+	                ['41~50', 16.78],
+	                ['51~60', 16.06],
+	                ['61~70', 15.20],
+	                ['70以上', 14.16]
+	            ],
+	            dataLabels: {
+	                enabled: true,
+	                rotation: -90,
+	                color: '#FFFFFF',
+	                align: 'right',
+	                format: '{point.y:.1f}', // one decimal
+	                y: 10, // 10 pixels down from the top
+	                style: {
+	                    fontSize: '13px',
+	                    fontFamily: 'Verdana, sans-serif'
+	                }
+	            }
+	        }]
+	    });
+	});
+
+
+
+
+
+
+    $(function () {
+	    $('#container3').highcharts({
+	        chart: {
+	            type: 'bar'
+	        },
+	        title: {
+	            text: '各个彩种男女人数统计'
+	        },
+	        subtitle: {
+	            text: '数据来源: Wikipedia.org'
+	        },
+	        xAxis: {
+	            categories: ['双色球', '大乐透', '时时彩', '福彩3D', '七乐彩','七星彩'],
+	            title: {
+	                text: null
+	            }
+	        },
+	        yAxis: {
+	            min: 0,
+	            title: {
+	                text: '人口总量 (百万)',
+	                align: 'high'
+	            },
+	            labels: {
+	                overflow: 'justify'
+	            }
+	        },
+	        tooltip: {
+	            valueSuffix: ' 百万'
+	        },
+	        plotOptions: {
+	            bar: {
+	                dataLabels: {
+	                    enabled: true,
+	                    allowOverlap: true
+	                }
+	            }
+	        },
+	        legend: {
+	            layout: 'vertical',
+	            align: 'right',
+	            verticalAlign: 'top',
+	            x: -40,
+	            y: 100,
+	            floating: true,
+	            borderWidth: 1,
+	            backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),
+	            shadow: true
+	        },
+	        credits: {
+	            enabled: false
+	        },
+	        series: [{
+	            name: '男',
+	            data: [107, 31, 635, 203, 235,100]
+	        }, {
+	            name: '女',
+	            data: [133, 156, 947, 408, 189,200]
+	        }]
+	    });
+	});
+
+
+
+
+
+
+
+    $(function () {
+	    $('#container4').highcharts({
+	        chart: {
+	            type: 'column'
+	        },
+	        title: {
+	            text: '各个彩种的出售量统计'
+	        },
+	        subtitle: {
+	            text: '数据来源: WorldClimate.com'
+	        },
+	        xAxis: {
+	            categories: [
+	                '双色球',
+	                '大乐透',
+	                '时时彩',
+	                '福彩3D',
+	                '七乐彩',
+	                '七星彩'
+	            ],
+	            crosshair: true
+	        },
+	        yAxis: {
+	            min: 0,
+	            title: {
+	                text: '出售量 (注)'
+	            }
+	        },
+	        tooltip: {
+	            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+	            pointFormat: '<tr><td style="color:{series.color};padding:0">出售量: </td>' +
+	            '<td style="padding:0"><b>{point.y:.1f} 注</b></td></tr>',
+	            footerFormat: '</table>',
+	            shared: true,
+	            useHTML: true
+	        },
+	        plotOptions: {
+	            column: {
+	                borderWidth: 0
+	            }
+	        },
+	        series: [{
+	            name: '彩种',
+	            data: [49, 71, 106, 129, 144, 176]
+	        }]
+	    });
+	});
+
+
+
+</script>
+
+<script type="text/javascript">
+
+    /*彩民报表*/
+    $('#cmbbBtn').click(function(){
+    	/*$('#homePage').hide();
+    	$('#ssqPage').hide();
+    	$('#dltPage').hide();
+    	$('#sscPage').hide();
+    	$('#cmbbPage').show();*/
+    	$('#homePage').css("display","none");
+    	$('#ssqPage').css("display","none");
+    	$('#dltPage').css("display","none");
+    	$('#sscPage').css("display","none");
+    	$('#cmbbPage').css("display","block");
+    	
+
+
+
+
+    	layui.use('table', function(){
+		  var table = layui.table;
+		  
+		  //第一个实例
+		  table.render({
+		    elem: '#demo',
+		    height: 'full-100',
+		    cellMinWidth: 80,
+		    limit:'10',
+		    url: 'test.txt', //数据接口
+		    page: true, //开启分页
+		    cols: [[ //表头
+		      {field: 'id', title: 'ID', width:80, sort: true, fixed: 'left'},
+		      {field: 'name', title: '用户名', width:80},
+		      {field: 'password', title: '密码', width:80, sort: true},
+		      {field: 'phoneNumber', title: '电话号码', width:80},
+		      {field: 'trueName', title: '真是姓名', width: 177},
+		      {field: 'sex', title: '性别', width: 80, sort: true},
+		      {field: 'age', title: '年龄', width: 80, sort: true},
+		      {field: 'rich', title: '财富', width: 80}
+		    ]]
+		  });
+		  
+		});
+
+
+
+
+    });
+
+
+    /*时时彩*/
+    $('#sscBtn').click(function(){
+    	/*$('#homePage').hide();
+    	$('#ssqPage').hide();
+    	$('#dltPage').hide();
+    	$('#sscPage').show();
+    	$('#cmbbPage').hide();*/
+    	$('#homePage').css("display","none");
+    	$('#ssqPage').css("display","none");
+    	$('#dltPage').css("display","none");
+    	$('#cmbbPage').css("display","none");
+    	$('#sscPage').css("display","block");
+
+
+    	var options = {
+			chart:{
+				type:'line',
+				inverted:true
+			},
+			title:{
+				text:'近二十期蓝球开奖结果'
+			},
+			xAxis:{
+			   title:{
+			       text:'开奖期数'
+			   },
+			   categories: ['第一期', '第二期', '第三期', '第四期', '第五期', '第六期', '第七期', '第八期', '第九期', '第十期', '第十一期', '第十二期','第十三期','第十四期','第十五期','第十六期','第十七期','第十八期','第十九期','第二十期'],
+			},
+			yAxis:{
+			   title:{
+			       text:'蓝球号码'
+			   },
+		       max:17,
+		       min:1,
+		       tickAmount:17
+			},
+			plotOptions: {
+		        line: {
+		            dataLabels: {
+		                enabled: true          // 开启数据标签
+		            },
+		            enableMouseTracking: true // 关闭鼠标跟踪，对应的提示框、点击事件会失效
+		        }
+		    },
+			series:[{
+				name:'蓝球1',
+				data:[12,7,9,11,1,6,1,5,5,5,5,6,8,6,5,6,8,4,7,6]
+			},{
+				name:'蓝球2',
+				data:[5,7,9,11,1,12,1,5,5,5,5,6,8,6,5,6,8,4,7,6]
+			}]	
+		};
+		var chart = Highcharts.chart('container12',options);
+    });
+
+
+    /*大乐透*/
+    $('#dltBtn').click(function(){
+    	/*$('#homePage').hide();
+    	$('#ssqPage').hide();
+    	$('#dltPage').show();
+    	$('#sscPage').hide();
+    	$('#cmbbPage').hide();*/
+    	$('#homePage').css("display","none");
+    	$('#ssqPage').css("display","none");
+    	$('#sscPage').css("display","none");
+    	$('#cmbbPage').css("display","none");
+    	$('#dltPage').css("display","block");
+
+    	var myChart = echarts.init(document.getElementById('container9'));
+				
+				
+		var hours = ['01', '02', '03', '04', '05', '06', '07',
+		        '08', '09', '10','11','12',
+		        '13', '14', '15', '16', '17', '18',
+		        '19', '20', '21', '22', '23', '24','25','26','27',
+		        '28','29','30','31','32','33','34','35'];
+		var days = ['第一期', '第二期', '第三期', '第四期', '第五期', '第六期', '第七期', '第八期', '第九期', '第十期', '第十一期', '第十二期','第十三期','第十四期','第十五期','第十六期','第十七期','第十八期','第十九期','第二十期'];
+		
+		var data = [[0,0,5],[0,5,5],[0,6,5],[0,9,5],[0,14,5],[0,25,5],
+		[1,5,5],[1,8,5],[1,14,5],[1,15,5],[1,26,5],[1,27,5],
+		[2,3,5],[2,14,5],[2,15,5],[2,26,5],[2,28,5],[2,30,5],
+		[3,3,5],[3,8,5],[3,19,5],[3,23,05],[3,25,05],[3,32,5],
+		[4,2,5],[4,3,5],[4,14,5],[4,25,5],[4,26,5],[4,33,5],
+		[5,5,5],[5,8,5],[5,12,5],[5,23,5],[5,24,5],[5,29,5],
+		[6,1,5],[6,6,5],[6,7,5],[6,8,5],[6,19,5],[6,28,5],
+		[7,5,5],[7,8,5],[7,14,5],[7,15,5],[7,26,5],[7,27,5],
+		[8,3,5],[8,14,5],[8,15,5],[8,26,5],[8,28,5],[8,30,5],
+		[9,3,5],[9,8,5],[9,19,5],[9,23,05],[9,25,05],[9,32,5],
+		[10,2,5],[10,3,5],[10,14,5],[10,25,5],[10,26,5],[10,33,5],
+		[11,5,5],[11,8,5],[11,12,5],[11,23,5],[11,24,5],[11,29,5],
+		[12,1,5],[12,6,5],[12,7,5],[12,8,5],[12,19,5],[12,28,5],
+		[13,1,5],[13,6,5],[13,7,5],[13,8,5],[13,19,5],[13,28,5],
+		[14,5,5],[14,8,5],[14,14,5],[14,15,5],[14,26,5],[14,27,5],
+		[15,3,5],[15,14,5],[15,15,5],[15,26,5],[15,28,5],[15,30,5],
+		[16,3,5],[16,8,5],[16,19,5],[16,23,05],[16,25,05],[16,32,5],
+		[17,2,5],[17,3,5],[17,14,5],[17,25,5],[17,26,5],[17,33,5],
+		[18,5,5],[18,8,5],[18,12,5],[18,23,5],[18,24,5],[18,29,5],
+		[19,1,5],[19,6,5],[19,7,5],[19,8,5],[19,19,5],[19,28,5]];
+		data = data.map(function (item) {
+		    return [item[1], item[0], item[2]];
+		});
+		
+		option = {
+		    title: {
+		        text: '红球近期走势图'
+		    },
+		    legend: {
+		        data: ['清空'],
+		        left: 'right'
+		    },
+		    tooltip: {
+		        position: 'top',
+		        formatter: function (params) {
+		            return days[params.value[1]] + '单号码：' + hours[params.value[0]];
+		        },
+		        textStyle:{
+		        	color:'red'
+		        }
+		    },
+		    grid: {
+		        left: 2,
+		        bottom: 5,
+		        right: 5,
+		        containLabel: true
+		    },
+		    xAxis: {
+		        type: 'category',
+		        data: hours,
+		        boundaryGap: false,
+		        splitLine: {
+		            show: true,
+		            lineStyle: {
+		                color: '#999',
+		                type: 'dashed'
+		            }
+		        },
+		        axisLine: {
+		            show: false
+		        }
+		    },
+		    yAxis: {
+		        type: 'category',
+		        data: days,
+		        axisLine: {
+		            show: false
+		        }
+		    },
+		    series: [{
+		        name: '清空',
+		        type: 'scatter',
+		        symbolSize: function (val) {
+		            return val[2] * 2;
+		        },
+		        data: data,
+		        animationDelay: function (idx) {
+		            return idx * 5;
+		        }
+		    }]
+		};
+		 // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+
+
+
+
+		var options = {
+			chart:{
+				type:'line',
+				inverted:true
+			},
+			title:{
+				text:'近二十期蓝球开奖结果'
+			},
+			xAxis:{
+			   title:{
+			       text:'开奖期数'
+			   },
+			   categories: ['第一期', '第二期', '第三期', '第四期', '第五期', '第六期', '第七期', '第八期', '第九期', '第十期', '第十一期', '第十二期','第十三期','第十四期','第十五期','第十六期','第十七期','第十八期','第十九期','第二十期'],
+			},
+			yAxis:{
+			   title:{
+			       text:'蓝球号码'
+			   },
+		       max:17,
+		       min:1,
+		       tickAmount:17
+			},
+			plotOptions: {
+		        line: {
+		            dataLabels: {
+		                enabled: true          // 开启数据标签
+		            },
+		            enableMouseTracking: true // 关闭鼠标跟踪，对应的提示框、点击事件会失效
+		        }
+		    },
+			series:[{
+				name:'蓝球1',
+				data:[12,7,9,11,1,6,1,5,5,5,5,6,8,6,5,6,8,4,7,6]
+			},{
+				name:'蓝球2',
+				data:[5,7,9,11,1,12,1,5,5,5,5,6,8,6,5,6,8,4,7,6]
+			}]	
+		};
+		var chart = Highcharts.chart('container10',options);
+    });
+
+    /*双色球*/
+	$('#ssqBtn').click(function(){
+		/*$('#homePage').hide();
+    	$('#ssqPage').show();
+    	$('#dltPage').hide();
+    	$('#sscPage').hide();
+    	$('#cmbbPage').hide();*/
+    	$('#homePage').css("display","none");
+    	$('#dltPage').css("display","none");
+    	$('#sscPage').css("display","none");
+    	$('#cmbbPage').css("display","none");
+    	$('#ssqPage').css("display","block");
+
+
+
+		var myChart = echarts.init(document.getElementById('container6'));
+				
+				
+		var hours = ['01', '02', '03', '04', '05', '06', '07',
+		        '08', '09', '10','11','12',
+		        '13', '14', '15', '16', '17', '18',
+		        '19', '20', '21', '22', '23', '24','25','26','27',
+		        '28','29','30','31','32','33'];
+		var days = ['第一期', '第二期', '第三期', '第四期', '第五期', '第六期', '第七期', '第八期', '第九期', '第十期', '第十一期', '第十二期','第十三期','第十四期','第十五期','第十六期','第十七期','第十八期','第十九期','第二十期'];
+		
+		var data = [[0,0,5],[0,5,5],[0,6,5],[0,9,5],[0,14,5],[0,25,5],
+		[1,5,5],[1,8,5],[1,14,5],[1,15,5],[1,26,5],[1,27,5],
+		[2,3,5],[2,14,5],[2,15,5],[2,26,5],[2,28,5],[2,30,5],
+		[3,3,5],[3,8,5],[3,19,5],[3,23,05],[3,25,05],[3,32,5],
+		[4,2,5],[4,3,5],[4,14,5],[4,25,5],[4,26,5],[4,33,5],
+		[5,5,5],[5,8,5],[5,12,5],[5,23,5],[5,24,5],[5,29,5],
+		[6,1,5],[6,6,5],[6,7,5],[6,8,5],[6,19,5],[6,28,5],
+		[7,5,5],[7,8,5],[7,14,5],[7,15,5],[7,26,5],[7,27,5],
+		[8,3,5],[8,14,5],[8,15,5],[8,26,5],[8,28,5],[8,30,5],
+		[9,3,5],[9,8,5],[9,19,5],[9,23,05],[9,25,05],[9,32,5],
+		[10,2,5],[10,3,5],[10,14,5],[10,25,5],[10,26,5],[10,33,5],
+		[11,5,5],[11,8,5],[11,12,5],[11,23,5],[11,24,5],[11,29,5],
+		[12,1,5],[12,6,5],[12,7,5],[12,8,5],[12,19,5],[12,28,5],
+		[13,1,5],[13,6,5],[13,7,5],[13,8,5],[13,19,5],[13,28,5],
+		[14,5,5],[14,8,5],[14,14,5],[14,15,5],[14,26,5],[14,27,5],
+		[15,3,5],[15,14,5],[15,15,5],[15,26,5],[15,28,5],[15,30,5],
+		[16,3,5],[16,8,5],[16,19,5],[16,23,05],[16,25,05],[16,32,5],
+		[17,2,5],[17,3,5],[17,14,5],[17,25,5],[17,26,5],[17,33,5],
+		[18,5,5],[18,8,5],[18,12,5],[18,23,5],[18,24,5],[18,29,5],
+		[19,1,5],[19,6,5],[19,7,5],[19,8,5],[19,19,5],[19,28,5]];
+		data = data.map(function (item) {
+		    return [item[1], item[0], item[2]];
+		});
+		
+		option = {
+		    title: {
+		        text: '红球近期走势图'
+		    },
+		    legend: {
+		        data: ['清空'],
+		        left: 'right'
+		    },
+		    tooltip: {
+		        position: 'top',
+		        formatter: function (params) {
+		            return days[params.value[1]] + '单号码：' + hours[params.value[0]];
+		        },
+		        textStyle:{
+		        	color:'red'
+		        }
+		    },
+		    grid: {
+		        left: 2,
+		        bottom: 5,
+		        right: 5,
+		        containLabel: true
+		    },
+		    xAxis: {
+		        type: 'category',
+		        data: hours,
+		        boundaryGap: false,
+		        splitLine: {
+		            show: true,
+		            lineStyle: {
+		                color: '#999',
+		                type: 'dashed'
+		            }
+		        },
+		        axisLine: {
+		            show: false
+		        }
+		    },
+		    yAxis: {
+		        type: 'category',
+		        data: days,
+		        axisLine: {
+		            show: false
+		        }
+		    },
+		    series: [{
+		        name: '清空',
+		        type: 'scatter',
+		        symbolSize: function (val) {
+		            return val[2] * 2;
+		        },
+		        data: data,
+		        animationDelay: function (idx) {
+		            return idx * 5;
+		        }
+		    }]
+		};
+		 // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+
+
+
+
+		var options = {
+			chart:{
+				type:'line',
+				inverted:true
+			},
+			title:{
+				text:'近二十期蓝球开奖结果'
+			},
+			xAxis:{
+			   title:{
+			       text:'开奖期数'
+			   },
+			   categories: ['第一期', '第二期', '第三期', '第四期', '第五期', '第六期', '第七期', '第八期', '第九期', '第十期', '第十一期', '第十二期','第十三期','第十四期','第十五期','第十六期','第十七期','第十八期','第十九期','第二十期'],
+			},
+			yAxis:{
+			   title:{
+			       text:'蓝球号码'
+			   },
+		       max:17,
+		       min:1,
+		       tickAmount:17
+			},
+			plotOptions: {
+		        line: {
+		            dataLabels: {
+		                enabled: true          // 开启数据标签
+		            },
+		            enableMouseTracking: true // 关闭鼠标跟踪，对应的提示框、点击事件会失效
+		        }
+		    },
+			series:[{
+				name:'蓝球',
+				data:[15,7,9,11,13,16,1,5,5,5,5,6,8,6,5,6,8,4,7,6]
+			}]	
+		};
+		var chart = Highcharts.chart('container7',options);
+	});
+
+
+	/*首页*/
+	$('#homeBtn').click(function(){
+		/*$('#homePage').show();
+    	$('#ssqPage').hide();
+    	$('#dltPage').hide();
+    	$('#sscPage').hide();
+    	$('#cmbbPage').hide();*/
+    	$('#ssqPage').css("display","none");
+    	$('#dltPage').css("display","none");
+    	$('#sscPage').css("display","none");
+    	$('#cmbbPage').css("display","none");
+    	$('#homePage').css("display","block");
+	});
+	layui.use('laydate', function(){
+	  var laydate = layui.laydate;
+	  
+	  //执行一个laydate实例
+	  laydate.render({
+	    elem: '#test1' //指定元素
+	  });
+
+	  laydate.render({
+	  	elem: '#test2'
+	  });
+
+	  laydate.render({
+	  	elem: '#test3'
+	  });
+
+
+	});
+</script>
+
+</html>

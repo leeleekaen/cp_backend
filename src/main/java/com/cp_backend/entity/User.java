@@ -1,9 +1,5 @@
 package com.cp_backend.entity;
 
-import java.io.Serializable;
-import java.util.HashMap;
-import java.util.Map;
-
 import javax.persistence.*;
 
 
@@ -31,6 +27,8 @@ public class User implements EntityInterface{
 	private String sex;
 	@Column(name = "age")
 	private Integer age;
+	@Column(name = "rich")
+	private float rich;
 	public Integer getId() {
 		return id;
 	}
@@ -73,10 +71,17 @@ public class User implements EntityInterface{
 	public void setAge(Integer age) {
 		this.age = age;
 	}
+	
+	public float getRich() {
+		return rich;
+	}
+	public void setRich(float rich) {
+		this.rich = rich;
+	}
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", name=" + name + ", password=" + password + ", phoneNumber=" + phoneNumber
-				+ ", trueName=" + trueName + ", sex=" + sex + ", age=" + age + "]";
+				+ ", trueName=" + trueName + ", sex=" + sex + ", age=" + age + ", rich=" + rich + "]";
 	}
 	
 }

@@ -10,24 +10,20 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
-import com.cp_backend.dao.UserDao;
-import com.cp_backend.entity.User;
+import com.cp_backend.dao.QxcAwardDao;
+import com.cp_backend.entity.QxcAward;
 
-/**
- * Created by ltb on 2018/4/9.
- */
 @Service
 @Transactional
-public class UserService {
-    @Resource
-    UserDao dao;
-
-    // 日志记录
-    private static final Logger logger = LoggerFactory.getLogger(UserService.class);
-
-    public User insert(User user) {
-        logger.info("新增test",user);
-        return  dao.save(user);
+public class QxcAwardService {
+	@Resource
+	QxcAwardDao dao;
+	
+    private static final Logger logger = LoggerFactory.getLogger(QxcAwardService.class);
+	
+	public QxcAward insert(QxcAward qxcAward) {
+        logger.info("新增test",qxcAward);
+        return  dao.save(qxcAward);
     }
 
     public void delete(int id) {
@@ -35,20 +31,21 @@ public class UserService {
         dao.deleteById(id);
     }
 
-    public void update (User u) {
-        Optional<User> user1 = dao.findById(u.getId());
-        user1.ifPresent(test -> {
+    public void update (QxcAward u) {
+        Optional<QxcAward> qxcAward1 = dao.findById(u.getId());
+        qxcAward1.ifPresent(test -> {
             test.setName(u.getName());
-            test.setAge(u.getAge());
+            test.setNumber(u.getNumber());
         });
         logger.info("更新实体，id为" + u.getId());
     }
 
-    public User find(int id) {
+    public QxcAward find(int id) {
         logger.info("查找id为" + id + "的实体！");
         return dao.getOne(id);
     }
-    public List<User> findAll() {
+    public List<QxcAward> findAll() {
     	return dao.findAll();
     }
+
 }
