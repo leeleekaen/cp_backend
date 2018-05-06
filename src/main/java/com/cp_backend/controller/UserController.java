@@ -3,12 +3,15 @@ package com.cp_backend.controller;
 import com.cp_backend.entity.User;
 import com.cp_backend.service.UserService;
 import com.cp_backend.util.Message;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author ljl
@@ -42,9 +45,17 @@ public class UserController {
     public void update(User user){
          service.update(user);
     }
+
+
     @RequestMapping(value = "user/findAll", method = RequestMethod.GET)
-    public Message findAll(){
-    	return Message.successMessage(service.findAll());
+    public Map<String,Object> findAll(int pageNumber, int pageSize){
+        Page<User> page = service.findAll(pageNumber, pageSize);
+        Map<String,Object> map = new HashMap<>();
+        map.put("code", 0);
+        map.put("msg", "success");
+        map.put("count", page.getTotalElements());
+        map.put("data", page.getContent());
+    	return map;
     }
     
 }

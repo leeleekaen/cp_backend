@@ -8,6 +8,10 @@ import javax.transaction.Transactional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.cp_backend.dao.UserDao;
@@ -48,7 +52,11 @@ public class UserService {
         logger.info("查找id为" + id + "的实体！");
         return dao.getOne(id);
     }
-    public List<User> findAll() {
-    	return dao.findAll();
+    public Page<User> findAll(int pageNumber, int pageSize) {
+    	return dao.findAll(new PageRequest(pageNumber, pageSize, Sort.Direction.ASC, "id"));
+    	// 先筛选后分页
+//        User user = new User();
+//        user.setName("1");
+//    	dao.findAll(Example.of(user), new PageRequest(pageNumber, pageSize, Sort.Direction.ASC, "id"));
     }
 }
